@@ -51,6 +51,9 @@ class RequestSession(object):
 
         headers = {"User-Agent": config.user_agent}
 
+        if config.bearer_token is not None:
+            headers["Authorization"] = f"Bearer {config.bearer_token}"
+
         if (
             self.__rate_limit_last_call
             and config.rate_limit

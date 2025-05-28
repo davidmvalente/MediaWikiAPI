@@ -22,6 +22,7 @@ class Config(object):
         timeout: Optional[float] = None,
         rate_limit: Optional[Union[int, timedelta]] = None,
         mediawiki_url: Optional[str] = None,
+        bearer_token: Optional[str] = None,
     ):
         if language is not None:
             self.__lang = Language(language)
@@ -33,6 +34,7 @@ class Config(object):
         self.timeout: float = timeout or self.DEFAULT_TIMEOUT
         self.user_agent: str = user_agent or self.DEFAULT_USER_AGENT
         self.mediawiki_url: str = mediawiki_url or self.API_URL
+        self.bearer_token = bearer_token or None
 
     @classmethod
     def donate_url(cls) -> str:
